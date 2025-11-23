@@ -45,3 +45,24 @@ Antes de começar, certifique-se de ter uma conta na AWS. Se precisar de ajuda p
 ## 🤔 Dúvidas?
 
 Esperamos que esta experiência tenha sido enriquecedora e que você tenha aprendido mais sobre Machine Learning aplicado a problemas reais. Se tiver alguma dúvida, não hesite em abrir uma issue neste repositório ou entrar em contato com a equipe da DIO.
+
+
+### Conclusão
+
+Utilizei o arquivo dataset-500-curso-sagemaker-canvas-dio.csv como base para a análise.
+
+Defini a coluna de quantidade de produto como o principal alvo do estudo.
+
+Optei pelo modo quick build para acelerar o processo de criação do modelo.
+
+O Root Mean Square Error (RMSE), que representa a média das diferenças entre os valores previstos e os valores reais, ficou em 1,527. Esse valor é aceitável, embora pudesse ser reduzido com um treinamento mais longo, como o de 4 horas. Em geral, quanto mais próximo de zero, melhor o desempenho.
+
+Já o Mean Absolute Error (MAE), que mede o erro médio absoluto sem elevar os desvios ao quadrado (tratando todos os erros de forma uniforme), alcançou 0,178. Para um modelo gerado rapidamente, esse resultado é excelente — valores abaixo de 1 já indicam boa precisão.
+
+O modelo ainda destacou duas colunas com possível influência sobre a variável de quantidade em estoque:
+
+Holiday_BR: indica os feriados nacionais e apresentou impacto estimado de 1,98%. Esse efeito é muito pequeno, praticamente dentro da margem de erro indicada pelo RMSE, o que sugere que essa variável não influencia de forma relevante o estoque.
+
+FLAG_PROMOCAO: obteve impacto de 0%, mostrando que a existência de promoção não altera o volume de estoque.
+
+Com isso, é seguro afirmar que a melhor referência para tomada de decisão é a previsão P50, por representar um cenário intermediário entre a projeção otimista (P90) e a pessimista (P10). Assim, torna-se possível manter um nível de estoque equilibrado, evitando tanto excessos quanto faltas.
